@@ -1,5 +1,5 @@
 const postcss = require('rollup-plugin-postcss');
-const staticFiles = require('rollup-plugin-static-files');
+// const staticFiles = require('rollup-plugin-static-files');
 const copy = require('rollup-plugin-copy');
 const path = require('path');
 
@@ -15,9 +15,11 @@ module.exports = {
         sourceMap: true,
         extract: !!options.writeMeta && path.resolve('dist/styles.css'),
       }),
-      staticFiles({
-        include: ['./static'],
-      }),
+      // if we need to ship static assets, we can use this plugin
+      // staticFiles({
+      //   include: ['./static'],
+      // }),
+      // or this one ...
       copy({
         targets: [
           {
